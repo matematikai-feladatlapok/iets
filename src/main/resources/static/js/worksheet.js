@@ -3,6 +3,7 @@ $(document).ready(function () {
         $("#task-form").submit(function(event) {
                 //stop submit the form, we will post it manually.
                 event.preventDefault();
+
                 fire_ajax_submit();
         });
 
