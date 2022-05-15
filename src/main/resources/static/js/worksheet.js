@@ -22,10 +22,21 @@ function fire_ajax_submit() {
         dataType: 'json',
         cache: false,
         timeout: 600000,
-        succes: function(data) {
+        success: function(data) {
             var json="<h4>Ajax Response</h4><pre>"+JSON.stringify(data,null,4)+"</pre>";
             $("#feedback").html(json);
             console.log("Success:",data);
+
+            if (data["taskCorrect"]==false) {
+                $("#correct").hide();
+                $("#incorrect").show();
+                $("#button").hide();
+            }
+            else {
+                $("#incorrect").hide();
+                $("#correct").show();
+                $("#button").hide();
+            }
         },
         error:function(e) {
             var json="<h4>Ajax Response Error</h4><pre>"+e.responseText+"<pre>";

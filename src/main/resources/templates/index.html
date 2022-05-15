@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/worksheet.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Feladatlap</title>
 </head>
 <body>
 <h1>Feladatlap</h1>
 <h2>1. feladat</h2>
-<form id="task-form">
-    <div class="flex">
-        <span>2 + <input type="text" id="answer"/> = 5 </span>
-        <button class="button"  type="submit">Lead</button>
-    </div>
-    <input type="hidden" id="leftSide" name="leftSide" value="2+x"/>
-    <input  type="hidden" id="rightSide" name="rightSide" value="5" />
-</form>
+<div id="task-1">
+    <form id="task-form">
+        <div class="flex">
+            <span>2 + <input type="text" id="answer"/> = 5 </span>
+            <button id="button-1"  type="submit">Lead</button>
+            <div id="correct">:-)</div>
+            <div id="incorrect">:-(</div>
+        </div>
+        <input type="hidden" id="leftSide" name="leftSide" value="2+x"/>
+        <input  type="hidden" id="rightSide" name="rightSide" value="5" />
+    </form>
+</div>
 <div id="feedback"></div>
-<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/worksheet.js"></script>
 </body>
 </html>
