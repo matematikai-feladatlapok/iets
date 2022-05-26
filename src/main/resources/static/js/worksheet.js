@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
-        $("#task-form").submit(function(event) {
+        $(".task-form").submit(function(event) {
                 //stop submit the form, we will post it manually.
                 event.preventDefault();
-
+                // https://api.jquery.com/children/
                 fire_ajax_submit();
         });
 
