@@ -1,19 +1,30 @@
-$(document).ready(function () {
+$(document).ready(function() {
+    $( ".task" ).submit(function( event ) {
 
-        $(".task-form").submit(function(event) {
-                //stop submit the form, we will post it manually.
-                event.preventDefault();
-                // https://api.jquery.com/children/
-                fire_ajax_submit();
-        });
-
+        var formId = $(this).attr('id').toString();;
+        //var result = "Form: "+frmId.toString();
+        //alert(result)
+        event.preventDefault();
+        fire_ajax_submit(formId);
+    });
 });
 
-function fire_ajax_submit() {
+function fire_ajax_submit(formId) {
+
     var task = {}
-    task["leftSide"] = $("#leftSide").val();
-    task["rightSide"] = $("#rightSide").val();
-    task["answer"] = $("#answer").val();
+
+    leftSide = "leftSide-"+formId;
+    rightSide = "rightSide-"+formId;
+    answer = "answer-"+formId;
+    correct = "correct-"+formId;
+    incorrect = "incorrect-"+formId;
+    button = "button-"+formId;
+
+    task[leftSide] = $("#"+leftSide).val();
+    task[rightSide] = $("#"+rightSide).val();
+    task[answer] = $("#"+answer).val();
+
+    console.log(task);
 
     $.ajax({
         type: "POST",
@@ -27,16 +38,17 @@ function fire_ajax_submit() {
             var json="<h4>Ajax Response</h4><pre>"+JSON.stringify(data,null,4)+"</pre>";
             $("#feedback").html(json);
             console.log("Success:",data);
+            console.log(data["taskCorrect"]);
 
             if (data["taskCorrect"]==false) {
-                $("#correct").hide();
-                $("#incorrect").show();
-                $("#button").hide();
+                $("#"+correct).hide();
+                $("#"+incorrect).show();
+                $("#"+button).hide();
             }
             else {
-                $("#incorrect").hide();
-                $("#correct").show();
-                $("#button").hide();
+                $("#"+incorrect).hide();
+                $("#"+correct).show();
+                $("#"+button).hide();
             }
         },
         error:function(e) {
