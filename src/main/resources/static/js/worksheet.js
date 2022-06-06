@@ -16,13 +16,14 @@ function fire_ajax_submit(formId) {
     leftSide = "leftSide-"+formId;
     rightSide = "rightSide-"+formId;
     answer = "answer-"+formId;
+
     correct = "correct-"+formId;
     incorrect = "incorrect-"+formId;
     button = "button-"+formId;
 
-    task[leftSide] = $("#"+leftSide).val();
-    task[rightSide] = $("#"+rightSide).val();
-    task[answer] = $("#"+answer).val();
+    task["leftSide"] = $("#"+leftSide).val();
+    task["rightSide"] = $("#"+rightSide).val();
+    task["answer"] = $("#"+answer).val();
 
     console.log(task);
 
