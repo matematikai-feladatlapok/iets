@@ -2,6 +2,7 @@ package hu.iets.controller;
 
 import hu.iets.model.AjaxResponseBody;
 import hu.iets.model.Task;
+import hu.iets.service.MathService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,9 @@ public class TaskController {
             return ResponseEntity.badRequest().body(result);
         }
 
-        if (task.getAnswer().equals("3"))
+        MathService mathService=new MathService(task);
+
+        if (mathService.IsTaskCorrect())
             result.setTaskCorrect();
         else
             result.setTaskIncorecct();
