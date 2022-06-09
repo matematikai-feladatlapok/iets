@@ -26,6 +26,18 @@ public enum MathOperation {
                 return null;
         }
     }
+
+    public boolean IsOperation(char character) {
+        switch (character) {
+            case '+':
+            case '-':
+            case '*':
+            case '/': return true;
+
+            default: return false;
+
+        }
+    }
 }
 
 
