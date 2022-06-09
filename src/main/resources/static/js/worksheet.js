@@ -23,7 +23,8 @@ function fire_ajax_submit(formId) {
 
     task["leftSide"] = $("#"+leftSide).val();
     task["rightSide"] = $("#"+rightSide).val();
-    task["answer"] = $("#"+answer).val();
+    task["answer"]=new Array();
+    task["answer"].push( $("#"+answer).val() );
 
     console.log(task);
 

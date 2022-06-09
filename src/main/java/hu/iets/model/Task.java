@@ -1,12 +1,14 @@
 package hu.iets.model;
 
+import java.util.List;
+
 public class Task {
 
     String leftSide;
     String rightSide;
-    String answer;
+    List<String> answer;
 
-    public Task(String leftSide, String rightSide, String answer) {
+    public Task(String leftSide, String rightSide, List<String> answer) {
         this.leftSide = leftSide;
         this.rightSide = rightSide;
         this.answer = answer;
@@ -15,7 +17,7 @@ public class Task {
     public Task() {
         leftSide = "";
         rightSide = "";
-        answer = "";
+        answer = null;
     }
 
     public String getLeftSide() {
@@ -26,7 +28,7 @@ public class Task {
         return rightSide;
     }
 
-    public String getAnswer() {
+    public List<String> getAnswer() {
         return answer;
     }
 
@@ -38,7 +40,7 @@ public class Task {
         this.rightSide = rightSide;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(List<String> answer) {
         this.answer = answer;
 
     }
